@@ -1,3 +1,14 @@
+
+<p align="center">
+  <a href="https://kvalidator.knusperleicht.org/docs/public/logo.svg" target="_blank" rel="noopener noreferrer">
+    <img width="180" src="https://kvalidator.knusperleicht.org/logo.svg" alt="KValidator logo">
+  </a>
+</p>
+<br/>
+<p align="center">
+</p>
+<br/>
+
 # kvalidator
 Kotlin MultiPlatform DSL Validator
 
