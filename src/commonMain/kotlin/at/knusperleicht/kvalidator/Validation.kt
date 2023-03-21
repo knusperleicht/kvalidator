@@ -18,6 +18,17 @@ data class Property<T, R>(
     }
 }
 
+data class PropertyArray<T, R>(
+    val key: KProperty1<T, List<R>>,
+    val builder: Validator<R>
+) : Prop<T> {
+    override fun validate(value: T): MutableList<ConstraintViolation> {
+        val data = key(value)
+        println(data)
+        return  mutableListOf()
+    }
+}
+
 private val mv = ResourceBundleMessageInterpolator()
 
 fun <T> Validator<T>.validate(value: T, failFast: Boolean = false): MutableList<ConstraintViolation> {
@@ -34,7 +45,7 @@ fun <T> Validator<T>.validate(value: T, failFast: Boolean = false): MutableList<
     constraints()
         .filter { !it.isValid(value) }
         .forEach {
-            val msg = mv.interpolate(it.message, it.messageValues)
+            val msg = mv.interpolate(it.message, it.parameters)
             violations.add(ConstraintViolation(msg.orEmpty()))
         }
     return violations
