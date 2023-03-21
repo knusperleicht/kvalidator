@@ -25,10 +25,17 @@ class ValidatorBuilder<T>(
         validations.add(p)
     }
 
+    infix fun <R> KProperty1<T, List<R>>.each(init: ValidatorBuilder<R>.() -> Unit) {
+        val p = PropertyArray(this, ValidatorBuilder<R>().apply(init))
+        validations.add(p)
+    }
+
     infix fun Constraint<T>.message(msg: String): Constraint<T> = constraint {
         message(msg)
         test(isValid)
-        messageValues(messageValues)
+        parameters(*parameters.entries.map {
+            Pair(it.key, it.value)
+        }.toTypedArray())
     }.also {
         constraints.remove(this)
     }

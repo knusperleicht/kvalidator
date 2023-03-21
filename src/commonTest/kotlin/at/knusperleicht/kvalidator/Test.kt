@@ -55,9 +55,21 @@ class Test {
 
         println(spec)
 
+
+
     }
 
+    @Test
+    fun array() {
+        validator<Customer> {
+            Customer::addresses each {
+                Address::street {
+                    length(3, 255)
+                }
+            }
 
+        }.validate(Customer("","", listOf(Address("Griechenberg", 3021, 99, Gender.FEMALE))))
+    }
     @Test
     fun testDomain() {
         val doma = DomainTest("", "")
