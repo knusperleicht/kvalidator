@@ -1,7 +1,7 @@
 
 <p align="center">
-  <a href="https://kvalidator.knusperleicht.org/docs/public/logo.svg" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="https://kvalidator.knusperleicht.org/logo.svg" alt="KValidator logo">
+  <a href="https://kv.knusperleicht.org/docs/public/logo.svg" target="_blank" rel="noopener noreferrer">
+    <img width="180" src="https://kv.knusperleicht.org/logo.svg" alt="KValidator logo">
   </a>
 </p>
 <br/>
